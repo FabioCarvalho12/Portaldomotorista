@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vídeos e Tutoriais | Portal do Motorista</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="portal-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="portal-brand">
+
+                <span class="portal-logo">
+                    <img src="Imagens/logo-piracicabana.png" alt="Piracicabana">
+                </span>
+
+                <span class="brand-divider"></span>
+
+                <span class="brand-title">
+                    Portal do Motorista
+                </span>
+
+            </a>
+
+
+            <!-- MENU DESKTOP -->
+
+            <nav class="desktop-menu" aria-label="Navegação principal">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#links">
+                    Links
+                </a>
+
+                <a href="videos_e_tutoriais.html" class="active">
+                    Vídeos
+                </a>
+
+                <a href="index.html#contatos">
+                    Contatos
+                </a>
+
+                <a href="index.html#rodape">
+                    Rodapé
+                </a>
+
+            </nav>
+
+
+            <!-- FERRAMENTAS -->
+
+            <div class="header-tools">
+
+                <button
+                    class="portal-theme"
+                    id="themeButton"
+                    type="button"
+                    aria-label="Ativar modo escuro"
+                    title="Tema">
+                    ◐
+                </button>
+
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-expanded="false">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+
+            <!-- MENU MOBILE -->
+
+            <nav
+                class="mobile-menu"
+                id="mobileMenu"
+                aria-hidden="true">
+
+                <a href="index.html">
+                    Home
+                    <span>→</span>
+                </a>
+
+                <a href="index.html#links">
+                    Links
+                    <span>→</span>
+                </a>
+
+                <a
+                    href="videos_e_tutoriais.html"
+                    class="active">
+                    Vídeos
+                    <span>→</span>
+                </a>
+
+                <a href="index.html#contatos">
+                    Contatos
+                    <span>→</span>
+                </a>
+
+                <a href="index.html#rodape">
+                    Rodapé
+                    <span>→</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="videos-page">
+
+        <section class="videos-section">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+                    CAPACITAÇÃO
+                </span>
+
+                <h1>
+                    Vídeos e Tutoriais
+                </h1>
+
+                <p>
+                    Conteúdos educativos para auxiliar os motoristas
+                    na rotina e nos procedimentos da operação.
+                </p>
+
+            </div>
+
+
+            <!-- VÍDEOS -->
+
+            <div
+                class="videos-grid"
+                id="videosGrid">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL DO VÍDEO
+    ====================================================== -->
+
+    <div
+        class="video-modal"
+        id="videoModal"
+        aria-hidden="true">
+
+        <div class="modal-content">
+
+
+            <button
+                class="close-modal"
+                id="closeModal"
+                type="button"
+                aria-label="Fechar vídeo">
+
+                ×
+
+            </button>
+
+
+            <div class="video-container">
+
+                <iframe
+                    id="videoPlayer"
+                    src=""
+                    title="Vídeo educativo"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+
+            <div class="modal-info">
+
+                <span>
+                    VÍDEO EDUCATIVO
+                </span>
+
+                <h2 id="modalTitle"></h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer
+        class="portal-footer"
+        id="rodape">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+
+                    <span class="portal-logo small">
+
+                        <img
+                            src="Imagens/logo-piracicabana.png"
+                            alt="Piracicabana">
+
+                    </span>
+
+
+                    <div class="footer-logo-content">
+
+                        <span class="footer-title">
+                            Portal do Motorista
+                        </span>
+
+                        <p>
+                            Central de informações, ferramentas,
+                            treinamentos e serviços para facilitar
+                            a rotina dos motoristas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                    <span>© Created by Fábio Carvalho <img src="Imagens/ChatGPT Image 16 de set. de 2026, 04_20_43.png" alt=""></span>
+                    <span>Uso corporativo</span>
+                </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script/videos-tutoriais.js"></script>
+
+</body>
+
+</html>

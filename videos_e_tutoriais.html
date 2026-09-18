@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal do Motorista - Vídeos e Tutoriais">
+    <title>Vídeos e Tutoriais | Portal do Motorista</title>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS exclusivo desta página -->
+    <link rel="stylesheet" href="css/videos-tutoriais.css">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="portal-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <a href="index.html" class="portal-brand">
+                <div class="portal-logo">
+                    <img src="Imagens/logo-piracicabana.png" alt="Piracicabana">
+                </div>
+                <span class="brand-divider"></span>
+                <span class="brand-title">Portal do Motorista</span>
+            </a>
+
+            <!-- Menu desktop -->
+            <nav class="desktop-menu" aria-label="Menu principal">
+                <a href="index.html">Home</a>
+                <a href="index.html#links">Links</a>
+                <a href="index.html#contatos">Contatos</a>
+                <a href="#rodape">Rodapé</a>
+            </nav>
+
+            <!-- Botões do cabeçalho -->
+            <div class="header-tools">
+                <button id="themeButton" class="portal-theme" type="button" aria-label="Ativar modo escuro">◐</button>
+                <button id="menuButton" class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- Menu mobile -->
+            <nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+                <a href="index.html">
+                    <span>Home</span>
+                    <strong>→</strong>
+                </a>
+                <a href="index.html#links">
+                    <span>Links</span>
+                    <strong>→</strong>
+                </a>
+                <a href="index.html#contatos">
+                    <span>Contatos</span>
+                    <strong>→</strong>
+                </a>
+                <a href="#rodape">
+                    <span>Rodapé</span>
+                    <strong>→</strong>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Carrossel -->
+        <section class="portal-carousel" aria-label="Informações do Portal do Motorista">
+            <div class="carousel-track">
+                <!-- Slide 1 -->
+                <div class="portal-slide active">
+                    <img src="Imagens/Gemini_Generated_Image_zijj3zijj3zijj3z.jpg" alt="Imagem do Portal do Motorista">
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="portal-slide">
+                    <img src="Imagens/Gemini_Generated_Image_dtk6mxdtk6mxdtk6.jpg" alt="Imagem do Portal do Motorista">
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="portal-slide">
+                    <img src="Imagens/Gemini_Generated_Image_v0ytedv0ytedv0yt.jpg" alt="Imagem do Portal do Motorista">
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="portal-slide">
+                    <img src="Imagens/Gemini_Generated_Image_hr0u9hr0u9hr0u9h.jpg" alt="Imagem do Portal do Motorista">
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="portal-slide">
+                    <img src="Imagens/Gemini_Generated_Image_wdop41wdop41wdop.jpg" alt="Imagem do Portal do Motorista">
+                </div>
+            </div>
+
+            <!-- Controles do carrossel -->
+            <button id="prevButton" class="carousel-button prev" type="button" aria-label="Imagem anterior">‹</button>
+            <button id="nextButton" class="carousel-button next" type="button" aria-label="Próxima imagem">›</button>
+            <div id="carouselDots" class="carousel-dots"></div>
+        </section>
+
+        <!-- Vídeos e tutoriais -->
+        <section class="videos-section" id="videos">
+            <div class="videos-header">
+                <span class="videos-label">CONTEÚDO</span>
+                <h1>Vídeos e Tutoriais</h1>
+                <p>Acesse treinamentos, orientações e conteúdos educativos para apoiar sua rotina.</p>
+            </div>
+
+            <!-- Cards -->
+            <div class="videos-grid">
+                <!-- Tutoriais -->
+                <a href="videos_tutoriais.html" class="video-card">
+                    <div class="video-card-icon">▶</div>
+                    <div class="video-card-content">
+                        <h2>Tutoriais</h2>
+                        <p>Aprenda procedimentos e utilize as ferramentas do portal.</p>
+                    </div>
+                    <span class="video-card-arrow">→</span>
+                </a>
+
+                <!-- DDS -->
+                <a href="videos_dds.html" class="video-card">
+                    <div class="video-card-icon">DDS</div>
+                    <div class="video-card-content">
+                        <h2>DDS</h2>
+                        <p>Conteúdos e orientações para os Diálogos Diários de Segurança.</p>
+                    </div>
+                    <span class="video-card-arrow">→</span>
+                </a>
+
+                <!-- Cursos -->
+                <a href="videos_curso.html" class="video-card">
+                    <div class="video-card-icon">✓</div>
+                    <div class="video-card-content">
+                        <h2>Cursos</h2>
+                        <p>Acesse cursos e materiais de capacitação.</p>
+                    </div>
+                    <span class="video-card-arrow">→</span>
+                </a>
+
+                <!-- Vídeos educativos -->
+                <a href="videos_educativos.html" class="video-card">
+                    <div class="video-card-icon">▶</div>
+                    <div class="video-card-content">
+                        <h2>Vídeos Educativos</h2>
+                        <p>Assista conteúdos educativos voltados à operação.</p>
+                    </div>
+                    <span class="video-card-arrow">→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="portal-footer" id="rodape">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-image">
+                        <img src="../Imagens/logo-piracicabana.png" alt="Piracicabana">
+                    </div>
+                    <div class="footer-logo-content">
+                        <span class="footer-title">Portal do Motorista</span>
+                        <p>Central de informações, ferramentas, treinamentos e serviços para facilitar a rotina dos motoristas.</p>
+                    </div>
+                </div>
+            </div>
+
+           <div class="footer-bottom">
+                    <span>© Created by Fábio Carvalho <img src="Imagens/ChatGPT Image 16 de set. de 2026, 04_20_43.png" alt=""></span>
+                    <span>Uso corporativo</span>
+                </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript exclusivo desta página -->
+    <script src="script/videos-tutoriais.js"></script>
+</body>
+</html>
+
