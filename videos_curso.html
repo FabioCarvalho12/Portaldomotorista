@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeos e Tutoriais | Portal do Motorista</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style_videos.css">
+</head>
+<body>
+
+<header class="portal-header">
+    <div class="header-container">
+        <a href="index.html" class="portal-brand">
+            <span class="portal-logo">
+                <img src="Imagens/logo-piracicabana.png" alt="Piracicabana"
+                     onerror="this.style.display='none'; this.parentElement.textContent='PORTAL DO MOTORISTA';">
+            </span>
+            <span class="brand-divider"></span>
+            <span class="brand-title">Portal do Motorista</span>
+        </a>
+
+        <nav class="desktop-menu" aria-label="Menu principal">
+            <a href="index.html">Home</a>
+            <a href="index.html#links">Links</a>
+            <a href="videos_e_tutoriais.html" class="active">Vídeos</a>
+            <a href="index.html#contatos">Contatos</a>
+            <a href="index.html#rodape">Rodapé</a>
+        </nav>
+
+        <div class="header-tools">
+            <button class="portal-theme" id="themeButton" type="button"
+                    aria-label="Ativar tema escuro" title="Alternar tema">◐</button>
+
+            <button class="menu-button" id="menuButton" type="button"
+                    aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+        <a href="index.html">Home <span>→</span></a>
+        <a href="index.html#links">Links <span>→</span></a>
+        <a href="videos_e_tutoriais.html" class="active">Vídeos <span>→</span></a>
+        <a href="index.html#contatos">Contatos <span>→</span></a>
+        <a href="index.html#rodape">Rodapé <span>→</span></a>
+    </nav>
+</header>
+
+<main class="videos-page" id="videos">
+    <section class="videos-section">
+        <header class="section-header">
+            <span class="section-tag">CAPACITAÇÃO</span>
+            <h1>Vídeos e Tutoriais</h1>
+            <p>Conteúdos educativos para auxiliar os motoristas na rotina e nos procedimentos da operação.</p>
+        </header>
+
+        <div id="videosGroups"></div>
+    </section>
+</main>
+
+<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog"
+     aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+        <button class="close-modal" id="closeModal" type="button"
+                aria-label="Fechar vídeo">×</button>
+
+        <div class="video-container">
+            <iframe id="videoPlayer"
+                    title="Reprodutor de vídeo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+        </div>
+
+        <div class="modal-info">
+            <h2 id="modalTitle"></h2>
+        </div>
+    </div>
+</div>
+
+<footer class="portal-footer videos-footer" id="rodape">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <span class="portal-logo small">
+                    <img src="Imagens/logo-piracicabana.png" alt="Piracicabana"
+                         onerror="this.style.display='none'; this.parentElement.textContent='PORTAL DO MOTORISTA';">
+                </span>
+                <div class="footer-info">
+                    <span class="footer-title">Portal do Motorista</span>
+                    <p>Central de informações, ferramentas, treinamentos e serviços para facilitar a rotina dos motoristas.</p>
+                </div>
+            </div>
+        </div>
+
+       <div class="footer-bottom">
+                    <span>© Created by Fábio Carvalho <img src="Imagens/ChatGPT Image 16 de set. de 2026, 04_20_43.png" alt=""></span>
+                    <span>Uso corporativo</span>
+                </div>
+    </div>
+</footer>
+
+<script src="script/script_cursos.js"></script>
+</body>
+</html>
