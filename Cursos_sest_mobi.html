@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Portal do Motorista - Cursos EAD e treinamentos para motoristas.">
+
+    <meta name="theme-color" content="#f2f8fd">
+
+    <title>Cursos e Tutoriais | Portal do Motorista</title>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/Curso_EAD.css">
+
+    <!-- Tema inicial -->
+    <script>
+        try {
+            const tema = localStorage.getItem("portal-theme");
+            if (tema === "dark") {
+                document.documentElement.dataset.theme = "dark";
+            }
+        } catch (error) {
+            // A página continua funcionando sem localStorage.
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- =========================================
+         CABEÇALHO
+    ========================================== -->
+    <header class="portal-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="portal-brand"
+               aria-label="Portal do Motorista - Página inicial">
+
+                <span class="portal-logo">
+                    <img
+                        src="Imagens/logo-piracicabana.png"
+                        alt="Piracicabana"
+                        onerror="this.style.display='none';"
+                    >
+                </span>
+
+                <span class="brand-divider"></span>
+
+                <span class="brand-title">
+                    Portal do Motorista
+                </span>
+
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <nav class="desktop-menu" aria-label="Menu principal">
+
+                <a href="index.html">Home</a>
+
+                <a href="index.html#links">Links</a>
+
+                <a href="videos_e_tutoriais.html" class="active">
+                    Cursos
+                </a>
+
+                <a href="index.html#contatos">Contatos</a>
+
+                    <a href="videos_e_tutoriais.html">Vídeos <span></span></a>
+
+            </nav>
+
+            <!-- FERRAMENTAS -->
+            <div class="header-tools">
+
+                <button
+                    class="portal-theme"
+                    id="themeButton"
+                    type="button"
+                    aria-label="Ativar tema escuro"
+                    title="Alternar tema"
+                >
+                    ◐
+                </button>
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- MENU MOBILE -->
+        <nav class="mobile-menu"
+             id="mobileMenu"
+             aria-label="Menu para dispositivos móveis"
+             inert>
+
+            <a href="index.html">
+                Home <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="index.html#links">
+                Links <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="videos_e_tutoriais.html" class="active">
+                Cursos <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="index.html#contatos">
+                Contatos <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="videos_e_tutoriais.html">Vídeos<span></span></a>
+
+
+        </nav>
+
+    </header>
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
+    <main class="cursos-main">
+
+        <section class="cursos-section"
+                 aria-labelledby="paginaTitulo">
+
+            <!-- INTRODUÇÃO -->
+            <div class="cursos-header">
+
+                <span class="section-tag">
+                    CAPACITAÇÃO E DESENVOLVIMENTO
+                </span>
+
+                <h1 id="paginaTitulo">
+                    Cursos e Treinamentos
+                </h1>
+
+                <p>
+                    Acesse os cursos disponíveis e continue
+                    desenvolvendo seus conhecimentos profissionais.
+                </p>
+
+            </div>
+
+            <!--
+                O JAVASCRIPT CRIA AUTOMATICAMENTE
+                AS SEÇÕES SEST SENAT E MOBIFÁCIL.
+            -->
+            <div id="cursosGroups" class="cursos-groups"></div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================================
+         RODAPÉ
+    ========================================== -->
+    <footer class="portal-footer" id="rodape">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+
+                    <span class="portal-logo small">
+
+                        <img
+                            src="Imagens/logo-piracicabana.png"
+                            alt="Piracicabana"
+                            onerror="this.style.display='none';"
+                        >
+
+                    </span>
+
+                    <div class="footer-info">
+
+                        <span class="footer-title">
+                            Portal do Motorista
+                        </span>
+
+                        <p>
+                            Central de informações, ferramentas,
+                            treinamentos e serviços para facilitar
+                            a rotina dos motoristas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <span>
+                    © Created by Fábio Carvalho
+                    <img
+                        src="Imagens/ChatGPT Image 16 de set. de 2026, 04_20_43.png"
+                        alt=""
+                        aria-hidden="true"
+                    >
+                </span>
+
+                <span>Uso corporativo</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="script/Script_EAD.js" defer></script>
+
+</body>
+</html>

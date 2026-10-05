@@ -1,0 +1,1409 @@
+
+/* =====================================================
+   PORTAL DO MOTORISTA
+   Cursos EAD — Piracicabana
+   Tema claro/escuro e layout responsivo
+===================================================== */
+
+/* =====================================================
+   1. VARIÁVEIS E TEMAS
+===================================================== */
+
+:root {
+    color-scheme: light;
+
+    --background: #f2f8fd;
+    --foreground: #10233f;
+    --card: #ffffff;
+    --surface: #ffffff;
+
+    --primary: #1264d8;
+    --primary-soft: #e7f1ff;
+
+    --muted: #607188;
+    --border: #d8e4ef;
+
+    --texto-principal: var(--foreground);
+    --texto-secundario: var(--muted);
+    --modal-fundo: var(--card);
+    --vermelho: var(--primary);
+
+    --radius: 13px;
+    --shadow-card: 0 8px 26px rgba(16, 35, 63, 0.07);
+    --shadow-hover: 0 16px 36px rgba(18, 100, 216, 0.15);
+
+    --container: 1400px;
+}
+
+html[data-theme="dark"],
+body.dark {
+    color-scheme: dark;
+
+    --background: #101b2d;
+    --foreground: #edf5ff;
+    --card: #19283d;
+    --surface: #152238;
+
+    --primary: #2f8cff;
+    --primary-soft: #243b5b;
+
+    --muted: #b0bfd2;
+    --border: #334963;
+
+    --texto-principal: var(--foreground);
+    --texto-secundario: var(--muted);
+    --modal-fundo: var(--card);
+    --vermelho: var(--primary);
+
+    --shadow-card: 0 8px 26px rgba(0, 0, 0, 0.16);
+    --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+/* =====================================================
+   2. RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--background);
+    color: var(--foreground);
+
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+body,
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+}
+
+::selection {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* =====================================================
+   3. CABEÇALHO — PADRÃO DO PORTAL DO MOTORISTA
+   Mantém a identidade do CSS de referência
+===================================================== */
+
+.portal-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: #f2f8fddd;
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+body.dark .portal-header,
+html[data-theme="dark"] .portal-header {
+    background: #101b2ddd;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1236px;
+    min-height: 76px;
+
+    margin: 0 auto;
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    position: relative;
+}
+
+/* MARCA / LOGO */
+
+.portal-brand {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.portal-logo {
+    flex: 0 0 auto;
+
+    width: 238px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+    border-radius: 11px;
+
+    background: transparent;
+    color: var(--primary);
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.portal-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.portal-logo.small {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 9px;
+}
+
+.brand-divider {
+    height: 24px;
+    border-left: 1px solid var(--border);
+}
+
+.brand-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+/* MENU DESKTOP */
+
+.desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-left: auto;
+}
+
+.desktop-menu a,
+.footer-column a,
+.footer-column span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.18s ease;
+}
+
+.desktop-menu a:hover,
+.desktop-menu a.active,
+.footer-column a:hover {
+    color: var(--primary);
+}
+
+/* FERRAMENTAS DO HEADER */
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.portal-theme,
+.menu-button {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    background: var(--card);
+    color: var(--foreground);
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.portal-theme {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.portal-theme:hover,
+.menu-button:hover {
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* BOTÃO HAMBÚRGUER */
+
+.menu-button {
+    display: none;
+    position: relative;
+    overflow: visible;
+}
+
+.menu-button span {
+    position: absolute;
+    left: 50%;
+    width: 21px;
+    height: 2px;
+    background: var(--foreground);
+    border-radius: 10px;
+    transform: translateX(-50%);
+
+    transition:
+        top 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        width 0.25s ease;
+}
+
+.menu-button span:nth-child(1) { top: 12px; }
+.menu-button span:nth-child(2) { top: 19px; }
+.menu-button span:nth-child(3) { top: 26px; }
+
+.menu-button.active {
+    border-color: var(--primary);
+    background: var(--primary-soft);
+}
+
+.menu-button.active span:nth-child(1) {
+    top: 19px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    top: 19px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+/* MENU MOBILE */
+
+.mobile-menu {
+    display: none;
+}
+
+/* TELAS MÉDIAS */
+
+@media (max-width: 1200px) {
+    .header-container {
+        gap: 16px;
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+
+    .portal-logo {
+        width: 190px;
+    }
+
+    .desktop-menu {
+        gap: 18px;
+    }
+}
+
+/* CELULAR / MENU MOBILE */
+
+@media (max-width: 760px) {
+    .header-container {
+        min-height: 68px;
+        padding: 0 18px;
+    }
+
+    .portal-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .portal-logo {
+        width: 190px;
+        height: 32px;
+    }
+
+    .brand-title {
+        font-size: 14px;
+    }
+
+    .brand-divider {
+        height: 20px;
+    }
+
+    .header-tools {
+        margin-left: auto;
+        gap: 8px;
+    }
+
+    .portal-theme {
+        display: grid;
+        place-items: center;
+    }
+
+    .menu-button {
+        display: grid;
+        place-items: center;
+    }
+
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 1001;
+
+        display: flex;
+        flex-direction: column;
+        padding: 10px 18px 20px;
+
+        background: var(--background);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.22s ease,
+            visibility 0.22s ease,
+            transform 0.22s ease;
+    }
+
+    .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .mobile-menu a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+
+        padding: 15px 4px;
+        border-bottom: 1px solid var(--border);
+
+        color: var(--foreground);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+
+        transition: color 0.2s ease;
+    }
+
+    .mobile-menu a:last-child {
+        border-bottom: 0;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+        color: var(--primary);
+    }
+
+    .mobile-menu a span {
+        color: var(--primary);
+    }
+}
+
+@media (max-width: 430px) {
+    .header-container {
+        gap: 10px;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .portal-brand {
+        gap: 8px;
+    }
+
+    .portal-brand .portal-logo {
+        width: 125px;
+        height: 30px;
+    }
+
+    .brand-title {
+        font-size: 12px;
+    }
+
+    .portal-theme,
+    .menu-button {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* =====================================================
+   7. CONTEÚDO DOS CURSOS
+===================================================== */
+
+.cursos-main {
+    flex: 1;
+    width: 100%;
+
+    padding: 60px 24px 80px;
+}
+
+.cursos-section {
+    width: 100%;
+    max-width: var(--container);
+
+    margin: 0 auto;
+}
+
+/* INTRODUÇÃO */
+
+.cursos-header {
+    max-width: 760px;
+
+    margin: 0 auto 56px;
+
+    text-align: center;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 14px;
+    margin-bottom: 17px;
+
+    border: 1px solid rgba(18, 100, 216, 0.17);
+    border-radius: 999px;
+
+    background: var(--primary-soft);
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.cursos-header h1 {
+    margin: 0 0 15px;
+
+    color: var(--texto-principal);
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(32px, 4.5vw, 50px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.12;
+}
+
+.cursos-header p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   8. GRUPOS DE CURSOS
+===================================================== */
+
+.cursos-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    width: 100%;
+}
+
+.curso-group {
+    width: 100%;
+    min-width: 0;
+}
+
+.curso-group-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin: 0 0 24px;
+    padding: 0 0 15px;
+
+    color: var(--texto-principal);
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-weight: 700;
+    line-height: 1.3;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.curso-group-title::before {
+    content: "";
+
+    display: block;
+    flex: 0 0 auto;
+
+    width: 5px;
+    height: 29px;
+
+    border-radius: 8px;
+    background: var(--primary);
+}
+
+.cursos-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+/* =====================================================
+   9. CARD DO CURSO
+===================================================== */
+
+.curso-card {
+    min-width: 0;
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: var(--card);
+    color: var(--texto-principal);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.curso-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--primary);
+    box-shadow: var(--shadow-hover);
+}
+
+.curso-imagem-link {
+    display: block;
+    padding: 12px 12px 0;
+
+    text-decoration: none;
+}
+
+.curso-imagem {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 291 / 150;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+    background: var(--primary-soft);
+}
+
+.curso-imagem img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.curso-card:hover .curso-imagem img {
+    transform: scale(1.045);
+}
+
+/* IMAGEM INDISPONÍVEL */
+
+.curso-imagem img.imagem-indisponivel {
+    object-fit: contain;
+    padding: 18px;
+}
+
+/* SELO SOBRE A IMAGEM */
+
+.curso-selo {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    max-width: calc(100% - 24px);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 7px;
+
+    background: var(--primary);
+    color: #ffffff;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.curso-selo-icone {
+    width: 17px;
+    height: 17px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+
+    font-size: 11px;
+    line-height: 1;
+}
+
+/* =====================================================
+   10. INFORMAÇÕES DO CURSO
+===================================================== */
+
+.curso-conteudo {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 18px 16px 16px;
+}
+
+.curso-categoria {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.curso-titulo {
+    margin: 0 0 15px;
+
+    color: var(--texto-principal);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+}
+
+.curso-descricao {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+
+    overflow: hidden;
+
+    margin: 0 0 22px;
+
+    color: var(--texto-secundario);
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* =====================================================
+   11. RODAPÉ DO CARD
+===================================================== */
+
+.curso-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: auto;
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border);
+}
+
+.curso-preco {
+    color: var(--primary);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.curso-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    color: var(--texto-principal);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+}
+
+.curso-link:hover {
+    color: var(--primary);
+}
+
+.curso-seta {
+    color: var(--primary);
+
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1;
+
+    transition: transform 0.2s ease;
+}
+
+.curso-link:hover .curso-seta {
+    transform: translateX(4px);
+}
+
+.curso-link:focus-visible,
+.curso-imagem-link:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* =====================================================
+   12. RODAPÉ DO PORTAL
+===================================================== */
+
+.portal-footer {
+    width: 100%;
+    margin-top: auto;
+
+    background: var(--card);
+    border-top: 3px solid var(--primary);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1240px;
+
+    margin: 0 auto;
+    padding: 28px 28px 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.footer-logo .portal-logo.small {
+    width: 150px;
+    height: 35px;
+
+    margin-top: 2px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    display: block;
+
+    color: var(--foreground);
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.footer-info p {
+    max-width: 420px;
+
+    margin: 5px 0 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.footer-bottom {
+    width: 70%;
+
+    margin: 24px auto 0;
+    padding: 15px 0 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 9px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.footer-bottom span:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
+    font-weight: 600;
+}
+
+.footer-bottom span img {
+    display: inline-block;
+
+    width: 18px;
+    height: 18px;
+
+    object-fit: contain;
+
+    position: relative;
+    top: -2px;
+}
+
+.footer-bottom span:last-child {
+    font-size: 8px;
+    opacity: 0.8;
+}
+
+/* =====================================================
+   13. TELAS MÉDIAS
+===================================================== */
+
+@media (max-width: 1200px) {
+    .header-container {
+        gap: 16px;
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+
+    .portal-logo {
+        width: 155px;
+    }
+
+    .desktop-menu {
+        gap: 17px;
+    }
+
+    .desktop-menu a {
+        font-size: 11px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+/* =====================================================
+   14. TABLETS E MENU MOBILE
+===================================================== */
+
+@media (max-width: 760px) {
+    .header-container {
+        min-height: 70px;
+        padding: 0 20px;
+    }
+
+    .desktop-menu {
+        display: none;
+    }
+
+    .header-tools {
+        margin-left: auto;
+    }
+
+    .menu-button {
+        display: grid;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 1001;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 8px 22px 18px;
+
+        background: var(--background);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.22s ease,
+            visibility 0.22s ease,
+            transform 0.22s ease;
+    }
+
+    .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .mobile-menu a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+
+        padding: 15px 4px;
+
+        border-bottom: 1px solid var(--border);
+
+        color: var(--foreground);
+
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+
+        text-decoration: none;
+
+        transition: color 0.2s ease;
+    }
+
+    .mobile-menu a:last-child {
+        border-bottom: 0;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+        color: var(--primary);
+    }
+
+    .mobile-menu a span {
+        color: var(--primary);
+        font-size: 19px;
+    }
+
+    .cursos-main {
+        padding: 48px 22px 60px;
+    }
+
+    .cursos-header {
+        margin-bottom: 42px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .curso-group-title {
+        font-size: 24px;
+    }
+
+    .footer-container {
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+}
+
+/* =====================================================
+   15. CELULARES
+===================================================== */
+
+@media (max-width: 560px) {
+    .header-container {
+        min-height: 66px;
+        padding: 0 13px;
+        gap: 9px;
+    }
+
+    .portal-brand {
+        gap: 8px;
+    }
+
+    .portal-brand .portal-logo {
+       width: 238px;
+    height: 38px;
+    }
+
+    .brand-divider {
+        height: 21px;
+    }
+
+    .brand-title {
+        max-width: 105px;
+
+        font-size: 11px;
+        line-height: 1.25;
+
+        white-space: normal;
+    }
+
+    .header-tools {
+        gap: 6px;
+    }
+
+    .portal-theme,
+    .menu-button {
+        width: 37px;
+        height: 37px;
+        border-radius: 9px;
+    }
+
+    .portal-theme {
+        font-size: 19px;
+    }
+
+    .mobile-menu {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .cursos-main {
+        padding: 35px 14px 45px;
+    }
+
+    .cursos-header {
+        margin-bottom: 35px;
+    }
+
+    .section-tag {
+        padding: 7px 10px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .cursos-header h1 {
+        font-size: 32px;
+        letter-spacing: -0.8px;
+    }
+
+    .cursos-header p {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .cursos-groups {
+        gap: 35px;
+    }
+
+    .curso-group-title {
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        font-size: 22px;
+    }
+
+    .curso-group-title::before {
+        height: 24px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .curso-card {
+        border-radius: 11px;
+    }
+
+    .curso-imagem-link {
+        padding: 8px 8px 0;
+    }
+
+    .curso-imagem {
+        border-radius: 6px;
+    }
+
+    .curso-selo {
+        top: 7px;
+        left: 7px;
+        gap: 4px;
+        padding: 5px 6px;
+        font-size: 7px;
+    }
+
+    .curso-selo-icone {
+        width: 13px;
+        height: 13px;
+        font-size: 9px;
+    }
+
+    .curso-conteudo {
+        padding: 12px 10px 11px;
+    }
+
+    .curso-categoria {
+        margin-bottom: 8px;
+        font-size: 8px;
+        letter-spacing: 0.6px;
+    }
+
+    .curso-titulo {
+        margin-bottom: 10px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .curso-descricao {
+        margin-bottom: 15px;
+        font-size: 10px;
+        line-height: 1.6;
+        -webkit-line-clamp: 4;
+    }
+
+    .curso-rodape {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 9px;
+        padding-top: 11px;
+    }
+
+    .curso-preco {
+        font-size: 11px;
+    }
+
+    .curso-link {
+        gap: 5px;
+        font-size: 9px;
+    }
+
+    .curso-seta {
+        font-size: 17px;
+    }
+
+    .footer-container {
+        padding: 23px 14px 0;
+    }
+
+    .footer-logo {
+        gap: 10px;
+    }
+
+    .footer-logo .portal-logo.small {
+        width: 100px;
+        height: 27px;
+    }
+
+    .footer-title {
+        font-size: 12px;
+    }
+
+    .footer-info p {
+        max-width: 240px;
+        font-size: 9px;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* =====================================================
+   16. CELULARES ESTREITOS
+===================================================== */
+
+@media (max-width: 370px) {
+    .portal-brand .portal-logo {
+        width: 88px;
+    }
+
+    .brand-title {
+        max-width: 83px;
+        font-size: 10px;
+    }
+
+    .header-container {
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+
+    .portal-theme,
+    .menu-button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .curso-imagem-link {
+        padding: 10px 10px 0;
+    }
+
+    .curso-conteudo {
+        padding: 15px;
+    }
+
+    .curso-titulo {
+        font-size: 15px;
+    }
+
+    .curso-descricao {
+        font-size: 11px;
+    }
+
+    .curso-rodape {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* =====================================================
+   17. ANIMAÇÕES ACESSÍVEIS
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* Reduz o símbolo do botão de tema */
+button.portal-theme {
+    font-size: 14px !important;
+    line-height: 1 !important;
+    font-family: Arial, sans-serif !important;
+    padding: 0 !important;
+}
