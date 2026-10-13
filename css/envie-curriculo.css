@@ -1,0 +1,158 @@
+/* =====================================================
+   PORTAL DO MOTORISTA — PÁGINA DE INDICAÇÃO
+   Complementa o CSS compartilhado sem alterar as demais páginas.
+   ===================================================== */
+:root {
+    --curriculo-red: #E2231A;
+    --curriculo-red-dark: #b71913;
+    --curriculo-yellow: #F9D615;
+    --curriculo-surface: var(--card, #fff);
+    --curriculo-text: var(--foreground, #171717);
+    --curriculo-muted: var(--muted, #777);
+    --curriculo-border: var(--border, #e5e5e5);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { min-width: 320px; }
+.portal-header .menu-current { color: var(--curriculo-red); }
+.portal-header .menu-current::after { width: 100%; background: var(--curriculo-red); }
+.curriculo-main { width: min(1180px, 100%); margin: 0 auto; padding: 42px 28px 64px; }
+.curriculo-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: center; gap: 30px; overflow: hidden; min-height: 420px; padding: clamp(28px, 5vw, 64px); border: 1px solid var(--curriculo-border); border-radius: 24px; background: var(--curriculo-surface); box-shadow: 0 16px 44px rgba(0,0,0,.055); }
+.curriculo-copy { position: relative; z-index: 2; }
+.curriculo-eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--curriculo-red); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--curriculo-red); box-shadow: 0 0 0 5px rgba(226,35,26,.10); }
+.curriculo-hero h1 { max-width: 620px; margin: 18px 0 16px; font: 700 clamp(34px, 4.2vw, 52px)/1.12 "Space Grotesk", sans-serif; letter-spacing: -.045em; }
+.curriculo-hero h1 span { color: var(--curriculo-red); }
+.curriculo-lead { max-width: 590px; margin: 0; color: var(--curriculo-muted); font-size: 15px; line-height: 1.85; }
+.curriculo-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.curriculo-button { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 17px; border: 1px solid transparent; border-radius: 12px; font-size: 13px; font-weight: 800; text-align: center; text-decoration: none; cursor: pointer; transition: transform .2s ease, background .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.curriculo-button:hover { transform: translateY(-2px); }
+.curriculo-button svg { width: 19px; height: 19px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.curriculo-button-primary { color: #fff; background: var(--curriculo-red); box-shadow: 0 9px 20px rgba(226,35,26,.18); }
+.curriculo-button-primary:hover { background: var(--curriculo-red-dark); box-shadow: 0 12px 24px rgba(226,35,26,.24); }
+.curriculo-button-secondary { color: var(--curriculo-text); background: var(--curriculo-surface); border-color: var(--curriculo-border); }
+.curriculo-button-secondary:hover { border-color: var(--curriculo-red); }
+.share-feedback { min-height: 18px; margin: 8px 0 0; color: var(--curriculo-red); font-size: 12px; font-weight: 700; }
+.curriculo-trust { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 16px; }
+.curriculo-trust span { display: inline-flex; align-items: center; gap: 7px; color: var(--curriculo-muted); font-size: 11px; font-weight: 700; }
+.curriculo-trust svg { width: 16px; height: 16px; fill: none; stroke: var(--curriculo-red); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.curriculo-visual { min-height: 290px; position: relative; display: grid; place-items: center; isolation: isolate; }
+.curriculo-visual::before { content: ""; position: absolute; z-index: -2; width: min(310px, 90%); aspect-ratio: 1; border-radius: 50%; background: linear-gradient(145deg, rgba(249,214,21,.25), rgba(226,35,26,.12)); }
+.visual-orbit { position: absolute; z-index: -1; border: 1px dashed rgba(226,35,26,.28); border-radius: 50%; transform: rotate(-22deg); }
+.orbit-one { width: 340px; height: 230px; }
+.orbit-two { width: 280px; height: 340px; transform: rotate(35deg); }
+.visual-document { position: relative; width: 210px; min-height: 255px; padding: 22px; border: 1px solid rgba(226,35,26,.13); border-radius: 18px; background: var(--curriculo-surface); box-shadow: 0 24px 55px rgba(0,0,0,.13); transform: rotate(-4deg); }
+.document-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-bottom: 15px; border-bottom: 1px solid var(--curriculo-border); }
+.document-symbol { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 9px; color: white; background: var(--curriculo-red); font: 800 10px "Space Grotesk", sans-serif; }
+.document-status { color: var(--curriculo-red); font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+.document-profile { display: flex; align-items: center; gap: 10px; margin: 18px 0; }
+.profile-avatar { display: grid; width: 43px; height: 43px; place-items: center; border-radius: 50%; color: var(--curriculo-red); background: rgba(226,35,26,.10); }
+.profile-avatar svg { width: 25px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.profile-lines { display: grid; gap: 7px; flex: 1; }
+.profile-lines i, .visual-mini-line, .document-line { display: block; height: 6px; border-radius: 9px; background: var(--curriculo-border); }
+.profile-lines i:first-child { width: 80%; background: var(--curriculo-muted); opacity: .6; }
+.profile-lines i:last-child { width: 55%; }
+.document-line { margin-top: 11px; }
+.document-line.medium { width: 78%; }.document-line.short { width: 54%; }
+.document-check { position: absolute; right: -12px; bottom: 20px; display: grid; width: 43px; height: 43px; place-items: center; border: 4px solid var(--curriculo-surface); border-radius: 50%; color: white; background: #26945b; box-shadow: 0 8px 18px rgba(38,148,91,.25); }
+.document-check svg { width: 23px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.visual-card { position: absolute; z-index: -1; width: 170px; height: 205px; padding: 24px 17px; border: 1px solid var(--curriculo-border); border-radius: 16px; background: var(--curriculo-surface); box-shadow: 0 15px 35px rgba(0,0,0,.07); transform: translate(38px, 14px) rotate(9deg); }
+.visual-mini-line { margin: 13px 0; height: 7px; }.visual-mini-line.short { width: 60%; }
+.visual-badge { position: absolute; right: 0; bottom: 25px; display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px solid var(--curriculo-border); border-radius: 13px; background: var(--curriculo-surface); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
+.badge-check { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 9px; color: #fff; background: var(--curriculo-red); font-weight: 900; }
+.visual-badge strong, .visual-badge small { display: block; }.visual-badge strong { font-size: 11px; }.visual-badge small { margin-top: 3px; color: var(--curriculo-muted); font-size: 9px; }
+.curriculo-steps { padding: 66px 0 58px; }
+.steps-heading { margin-bottom: 26px; text-align: center; }.steps-heading h2, .curriculo-bottom-cta h2 { margin: 10px 0 8px; font: 700 clamp(25px, 3vw, 34px)/1.2 "Space Grotesk", sans-serif; letter-spacing: -.035em; }.steps-heading p, .curriculo-bottom-cta p { margin: 0; color: var(--curriculo-muted); font-size: 13px; line-height: 1.7; }
+.steps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.step-card { position: relative; min-height: 210px; padding: 25px; overflow: hidden; border: 1px solid var(--curriculo-border); border-radius: 17px; background: var(--curriculo-surface); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.step-card:hover { transform: translateY(-4px); border-color: rgba(226,35,26,.45); box-shadow: 0 15px 35px rgba(0,0,0,.07); }
+.step-number { position: absolute; top: 17px; right: 20px; color: var(--curriculo-red); font: 700 13px "Space Grotesk", sans-serif; }
+.step-icon { display: grid; width: 46px; height: 46px; place-items: center; margin-bottom: 19px; border-radius: 13px; color: var(--curriculo-red); background: rgba(226,35,26,.09); }
+.step-icon svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.step-card h3 { margin: 0 0 8px; font: 700 16px "Space Grotesk", sans-serif; }.step-card p { margin: 0; color: var(--curriculo-muted); font-size: 12px; line-height: 1.7; }
+.curriculo-bottom-cta { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 30px 34px; border-radius: 18px; background: var(--curriculo-surface); border: 1px solid var(--curriculo-border); border-left: 4px solid var(--curriculo-red); }
+.curriculo-bottom-cta h2 { font-size: clamp(22px, 2.5vw, 28px); }.curriculo-bottom-cta p { max-width: 590px; }
+.portal-footer .footer-bottom a { text-decoration: none; }.portal-footer .footer-bottom a:hover { color: var(--curriculo-red); }
+.portal-footer .footer-bottom img { width: 20px; height: 20px; object-fit: contain; vertical-align: middle; position: relative; top: -2px; }
+body.dark .curriculo-hero, body.dark .step-card, body.dark .curriculo-bottom-cta { box-shadow: none; }
+@media (max-width: 950px) { .curriculo-hero { grid-template-columns: minmax(0, 1fr) minmax(240px, .75fr); padding: 35px; gap: 10px; }.curriculo-visual { transform: scale(.9); }.curriculo-actions { align-items: stretch; flex-direction: column; max-width: 350px; }.curriculo-button { width: 100%; }.curriculo-bottom-cta { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 760px) { .curriculo-main { padding: 24px 16px 42px; }.curriculo-hero { grid-template-columns: 1fr; padding: 28px 22px 20px; border-radius: 19px; }.curriculo-hero h1 { font-size: clamp(32px, 9vw, 43px); }.curriculo-lead { font-size: 14px; }.curriculo-actions { max-width: none; }.curriculo-visual { min-height: 280px; margin-top: 2px; transform: scale(.88); }.visual-badge { right: 2px; bottom: 12px; }.curriculo-steps { padding: 48px 0 38px; }.steps-grid { grid-template-columns: 1fr; gap: 12px; }.step-card { min-height: auto; padding: 22px; }.step-icon { margin-bottom: 14px; }.curriculo-bottom-cta { padding: 25px 22px; }.curriculo-trust { gap: 12px; } }
+@media (max-width: 420px) { .curriculo-hero { padding: 24px 17px 14px; }.curriculo-hero h1 { font-size: 31px; }.curriculo-button { font-size: 12px; padding: 12px; }.curriculo-visual { margin-left: -10px; margin-right: -10px; transform: scale(.78); }.curriculo-trust { flex-direction: column; gap: 9px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+
+/* =====================================================
+   CONTRASTE E CONSISTÊNCIA COM O PORTAL
+   Usa as cores de fundo, cartões e textos do tema compartilhado.
+   O vermelho permanece como cor de destaque institucional.
+   ===================================================== */
+.curriculo-hero,
+.step-card,
+.curriculo-bottom-cta {
+    color: var(--foreground, #171717);
+    background: var(--card, #ffffff);
+    border-color: var(--border, #e5e5e5);
+}
+
+.curriculo-hero h1,
+.steps-heading h2,
+.curriculo-bottom-cta h2,
+.step-card h3,
+.visual-badge strong {
+    color: var(--foreground, #171717);
+}
+
+.curriculo-lead,
+.steps-heading p,
+.curriculo-bottom-cta p,
+.step-card p,
+.visual-badge small,
+.curriculo-trust span {
+    color: var(--muted, #777777);
+}
+
+.curriculo-button-secondary {
+    color: var(--foreground, #171717);
+    background: var(--card, #ffffff);
+    border-color: var(--border, #e5e5e5);
+}
+
+.curriculo-button-secondary:hover {
+    border-color: var(--curriculo-red);
+}
+
+.document-line,
+.profile-lines i,
+.visual-mini-line {
+    background: var(--border, #e5e5e5);
+}
+
+.profile-lines i:first-child {
+    background: var(--muted, #777777);
+    opacity: .7;
+}
+
+body.dark {
+    --curriculo-surface: var(--card, #19283d);
+    --curriculo-text: var(--foreground, #edf5ff);
+    --curriculo-muted: var(--muted, #a9bbd1);
+    --curriculo-border: var(--border, #334963);
+}
+
+body.dark .curriculo-hero,
+body.dark .step-card,
+body.dark .curriculo-bottom-cta {
+    box-shadow: none;
+}
+
+/* O crédito continua clicável, mas não muda de aparência no hover. */
+.portal-footer .footer-bottom > a,
+.portal-footer .footer-bottom > a:visited,
+.portal-footer .footer-bottom > a:hover,
+.portal-footer .footer-bottom > a:active {
+    color: inherit !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
